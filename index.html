@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Nursing Summary Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.7.0"
+  }
+}
+</script>
+<style>
+  .summary-print-title {
+    display: none;
+  }
+  @media print {
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+    
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      background-color: white !important;
+    }
+
+    .print-hide {
+      display: none !important;
+    }
+
+    .print-main-container, .print-grid-wrapper, .print-summary-column {
+      all: unset;
+      display: block;
+      width: 100%;
+    }
+    
+    .print-summary-card {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .summary-print-title {
+      display: block !important;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0369a1; /* sky-700 */
+      margin-bottom: 1rem;
+    }
+
+    /* This new class creates the single, unified frame */
+    .print-unified-frame {
+      border: 1px solid #cbd5e1 !important; /* slate-300 */
+      border-radius: 0.5rem !important;
+      padding: 1rem !important;
+      display: block !important;
+    }
+
+    /* Strip styling from the patient info block inside the frame */
+    .print-patient-info {
+        border: none !important;
+        background: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        margin-bottom: 1.5rem !important; /* Space between info and first section */
+    }
+
+    /* Strip margin from the sections wrapper */
+    .print-sections-wrapper {
+        margin-top: 0 !important;
+    }
+
+    /* Style individual sections to look good inside the frame */
+    .print-section-container {
+      page-break-inside: avoid;
+      border: 1px dashed #93c5fd !important; /* Keep this nice visual */
+      border-radius: 0.5rem !important;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .print-section-container:last-child {
+      margin-bottom: 0;
+    }
+    
+    .print-section-header {
+      background-color: #f0f9ff !important; /* sky-50 */
+      color: #0c4a6e !important; /* sky-900 */
+      padding: 0.75rem !important;
+    }
+    
+    .print-summary-content {
+      color: #1e293b !important; /* slate-800 */
+      padding: 1rem !important;
+      background-color: white !important;
+    }
+  }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

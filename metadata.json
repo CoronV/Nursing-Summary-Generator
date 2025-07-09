@@ -1,0 +1,6 @@
+{
+  "name": "Copy of AI Nursing Summary Generator",
+  "description": "An application to automatically generate nursing summaries from patient data using AI.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
